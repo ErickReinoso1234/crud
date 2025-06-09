@@ -7,6 +7,7 @@ import {
   register,
   logout,
   profile,
+  verifyToken,
 } from "../controllers/auth.controller.js";
 
 const router = Router();
@@ -16,6 +17,8 @@ router.post("/register", validatorSchema(registerShema), register);
 router.post("/login", validatorSchema(loginShema), login);
 
 router.post("/logout", logout);
+
+router.get("/verify", verifyToken);
 
 router.get("/profile", authRequired, profile);
 
