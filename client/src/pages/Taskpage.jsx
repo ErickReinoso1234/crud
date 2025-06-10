@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import CardTask from "../components/CardTask";
 import { UseTask } from "../context/TaskContext";
 
 function TaskPage() {
@@ -7,15 +8,18 @@ function TaskPage() {
   useEffect(() => {
     getTasks();
   }, []);
-  if (tasks.length === 0) return <h1>No hay tareas</h1>;
+
+  if (tasks.length === 0)
+    return (
+      <h1 className="text-center text-white text-2xl mt-10">
+        No hay tareas disponibles
+      </h1>
+    );
 
   return (
-    <div>
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
       {tasks.map((task) => (
-        <div key={task._id}>
-          <h1>{task.title}</h1>
-          <p>{task.description}</p>
-        </div>
+        <CardTask task={task} key={task._id} />
       ))}
     </div>
   );

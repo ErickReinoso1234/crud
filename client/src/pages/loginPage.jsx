@@ -32,7 +32,7 @@ function LoginPage() {
             {error}
           </div>
         ))}
-        <h1 className="text-2xl font-bold">Iniciar Sesión</h1>
+        <h1 className="text-3xl font-bold my-2">Iniciar Sesión</h1>
         <form
           className="bg-zinc-800 max-w-md p-10 rounded-md"
           onSubmit={onSubmit}
@@ -55,7 +55,12 @@ function LoginPage() {
           {errors.password && (
             <span className="text-red-500">La Contraseña es requerida</span>
           )}
-          <button type="submit">Login</button>
+          <button
+            className="bg-sky-500 text-white px-4 py-2 rounded-md my-2"
+            type="submit"
+          >
+            Login
+          </button>
         </form>
         <p className="flex gap-x-2 justify-between">
           No tienes una cuenta aun{" "}
