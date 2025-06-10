@@ -1,0 +1,38 @@
+import { createContext, useContext, useState } from "react";
+import { createTaskRequest, getTasksRequest } from "../api/task";
+
+const TaskContext = createContext();
+
+export const UseTask = () => {
+  const context = useContext(TaskContext);
+
+  if (!context) {
+    throw new Error("NO existe el contexto");
+  }
+  return context;
+};
+
+export function TaskProvider({ children }) {
+  const [tasks, setTasks] = useState([]);
+
+  const getTasks = async () => {
+    try {
+      const res = await getTasksRequest();
+      setTasks(res.data);
+      console.log(res);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const createTask = async (task) => {
+    const res = await createTaskRequest(task);
+    console.log(res);
+  };
+
+  return (
+    <TaskContext.Provider value={{ tasks, createTask, getTasks }}>
+      {children}
+    </TaskContext.Provider>
+  );
+}
