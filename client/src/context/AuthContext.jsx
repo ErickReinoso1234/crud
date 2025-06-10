@@ -40,6 +40,11 @@ export const AuthProvider = ({ children }) => {
       setError([error.response.data.message]);
     }
   };
+  const logout = () => {
+    Cookie.remove("token");
+    setIsAuthenticated(false);
+    setUser(null);
+  };
 
   useEffect(() => {
     if (errors.length > 0) {
@@ -85,6 +90,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         signup,
         sigin,
+        logout,
         loading,
         user,
         isAuthenticated,
