@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const URI =
-  "mongodb+srv://erick:1234@practica.ugpwuhu.mongodb.net/miapp?retryWrites=true&w=majority&appName=practica";
+  "mongodb+srv://proyectoGratuidad:JLqIzCmNMMwQBxvz@cluster0.axizg5j.mongodb.net/miapp?retryWrites=true&w=majority&appName=Cluster0";
 
 export async function conectarDB() {
   try {

@@ -19,7 +19,7 @@ function RegisterPage() {
   });
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/task");
+      navigate("/User");
     }
   }, [isAuthenticated]);
 
